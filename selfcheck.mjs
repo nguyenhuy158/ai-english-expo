@@ -36,3 +36,22 @@ assert.equal(nonJson.message, 'Lỗi 503');
 
 globalThis.fetch = realFetch;
 console.log('selfcheck ok');
+
+// reviewTranslation gửi đúng path/method/body
+{
+  let seen;
+  globalThis.fetch = async (url, opts) => {
+    seen = { url, opts };
+    return new Response(JSON.stringify({ corrected: 'I go home', corrections: [], overallFeedback: 'ok' }), {
+      status: 200,
+      headers: { 'content-type': 'application/json' },
+    });
+  };
+  const res = await api.reviewTranslation('Tôi về nhà', 'I go home');
+  assert.equal(seen.url, 'https://en.huyab.click/api/translation/review');
+  assert.equal(seen.opts.method, 'POST');
+  assert.deepEqual(JSON.parse(seen.opts.body), { vietnamese: 'Tôi về nhà', translation: 'I go home' });
+  assert.equal(seen.opts.headers['Content-Type'], 'application/json');
+  assert.equal(res.corrected, 'I go home');
+}
+console.log('translate selfcheck ok');

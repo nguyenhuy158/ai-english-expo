@@ -13,6 +13,7 @@ import SavedScreen from './src/SavedScreen';
 import RankingsScreen from './src/RankingsScreen';
 import StatsScreen from './src/StatsScreen';
 import LookupScreen from './src/LookupScreen';
+import TranslateScreen from './src/TranslateScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -25,6 +26,7 @@ const SCREENS = [
   ['Rankings', 'Xếp hạng', RankingsScreen],
   ['Stats', 'Thống kê', StatsScreen],
   ['Lookup', 'Tra từ', LookupScreen],
+  ['Translate', 'Dịch câu', TranslateScreen],
 ];
 
 export default function App() {

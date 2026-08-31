@@ -52,6 +52,12 @@ export const api = {
   rankings: () => request('/api/rankings'),
   weeklyRankings: () => request('/api/rankings/weekly'),
   lookupWord: (term) => request(`/api/word/lookup?term=${encodeURIComponent(term)}`),
+  translationToday: () => request('/api/translation/today'),
+  reviewTranslation: (vietnamese, translation) =>
+    request('/api/translation/review', {
+      method: 'POST',
+      body: JSON.stringify({ vietnamese, translation }),
+    }),
   saveLookedUpWord: (word) =>
     request('/api/word/save', { method: 'POST', body: JSON.stringify(word) }),
 };

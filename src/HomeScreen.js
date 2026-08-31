@@ -7,6 +7,7 @@ const TILES = [
   ['Lessons', 'Bài học', '📚'],
   ['Saved', 'Từ đã lưu', '🔖'],
   ['Lookup', 'Tra từ', '🔍'],
+  ['Translate', 'Dịch câu', '✍️'],
   ['Rankings', 'Xếp hạng', '🏆'],
   ['Stats', 'Thống kê', '📈'],
 ];
