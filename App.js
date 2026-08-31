@@ -7,8 +7,25 @@ import { api } from './src/api';
 import LoginScreen from './src/LoginScreen';
 import HomeScreen from './src/HomeScreen';
 import FlashcardsScreen from './src/FlashcardsScreen';
+import LessonsScreen from './src/LessonsScreen';
+import LessonDetailScreen from './src/LessonDetailScreen';
+import SavedScreen from './src/SavedScreen';
+import RankingsScreen from './src/RankingsScreen';
+import StatsScreen from './src/StatsScreen';
+import LookupScreen from './src/LookupScreen';
 
 const Stack = createNativeStackNavigator();
+
+// Mọi màn hình sau login đều nhận onUnauthorized để đá về LoginScreen khi cookie hết hạn.
+const SCREENS = [
+  ['Flashcards', 'Flashcards', FlashcardsScreen],
+  ['Lessons', 'Bài học', LessonsScreen],
+  ['LessonDetail', null, LessonDetailScreen],
+  ['Saved', 'Từ đã lưu', SavedScreen],
+  ['Rankings', 'Xếp hạng', RankingsScreen],
+  ['Stats', 'Thống kê', StatsScreen],
+  ['Lookup', 'Tra từ', LookupScreen],
+];
 
 export default function App() {
   const [user, setUser] = useState(undefined); // undefined = đang kiểm tra, null = chưa đăng nhập
@@ -31,6 +48,8 @@ export default function App() {
     );
   }
 
+  const logout = () => setUser(null);
+
   return (
     <NavigationContainer>
       <StatusBar style="auto" />
@@ -39,9 +58,14 @@ export default function App() {
           <Stack.Screen name="Home" options={{ title: 'AI English' }}>
             {(props) => <HomeScreen {...props} user={user} />}
           </Stack.Screen>
-          <Stack.Screen name="Flashcards" options={{ title: 'Flashcards' }}>
-            {(props) => <FlashcardsScreen {...props} onUnauthorized={() => setUser(null)} />}
-          </Stack.Screen>
+          {SCREENS.map(([name, title, Screen]) => (
+            <Stack.Screen
+              key={name}
+              name={name}
+              options={({ route }) => ({ title: title ?? route.params?.title ?? '' })}>
+              {(props) => <Screen {...props} onUnauthorized={logout} />}
+            </Stack.Screen>
+          ))}
         </Stack.Navigator>
       ) : (
         <LoginScreen onLoggedIn={refreshUser} />

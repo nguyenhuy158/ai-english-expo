@@ -46,6 +46,14 @@ export const api = {
     request(`/api/vocab/${id}/save`, { method: 'POST', body: JSON.stringify({ save }) }),
   reviewVocab: (id, quality) =>
     request(`/api/vocab/${id}/review`, { method: 'POST', body: JSON.stringify({ quality }) }),
+
+  lessonDetail: (id) => request(`/api/lessons/${id}`),
+  learningStats: () => request('/api/stats'),
+  rankings: () => request('/api/rankings'),
+  weeklyRankings: () => request('/api/rankings/weekly'),
+  lookupWord: (term) => request(`/api/word/lookup?term=${encodeURIComponent(term)}`),
+  saveLookedUpWord: (word) =>
+    request('/api/word/save', { method: 'POST', body: JSON.stringify(word) }),
 };
 
 export const GOOGLE_LOGIN_URL = `${BASE_URL}/api/auth/google`;
