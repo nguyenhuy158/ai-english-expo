@@ -10,29 +10,10 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # pnpm check (Biome lint) -> pnpm test (selfcheck) -> pnpm build: bundle the
+  # JS for iOS with Metro, catching broken imports/syntax without Xcode.
   check:
-    name: Lint, selfcheck, bundle
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: pnpm/action-setup@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: .nvmrc
-          cache: pnpm
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Lint
-        run: pnpm check
-
-      - name: Self-check
-        run: pnpm test
-
-      # Bundle the JS for iOS with Metro: catches broken imports/syntax
-      # without needing Xcode or a native build.
-      - name: Bundle
-        run: pnpm build
+    uses: nguyenhuy158/kit/.github/workflows/check.yml@v0.1.0
+    with:
+      run-test: true
+      run-build: true
