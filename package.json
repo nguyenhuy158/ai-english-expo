@@ -29,6 +29,7 @@
   "private": true,
   "devDependencies": {
     "@biomejs/biome": "^2.5.15",
+    "@huyab/config": "github:nguyenhuy158/kit#v0.1.0&path:packages/config",
     "eas-cli": "^23.1.0"
   },
   "packageManager": "pnpm@11.7.0",

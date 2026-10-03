@@ -1,29 +1,11 @@
 {
   "$schema": "https://biomejs.dev/schemas/2.5.15/schema.json",
-  "vcs": {
-    "enabled": true,
-    "clientKind": "git",
-    "useIgnoreFile": true
-  },
+  "extends": ["@huyab/config/biome.json"],
   "files": {
-    "includes": [
-      "**",
-      "!**/dist",
-      "!**/.expo",
-      "!**/ios",
-      "!**/android",
-      "!**/build"
-    ]
-  },
-  "formatter": {
-    "enabled": true,
-    "indentStyle": "space",
-    "indentWidth": 2
+    "includes": ["!**/.expo", "!**/ios", "!**/android", "!**/build"]
   },
   "linter": {
-    "enabled": true,
     "rules": {
-      "preset": "recommended",
       "complexity": {
         "useOptionalChain": "warn"
       },
