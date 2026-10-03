@@ -66,16 +66,15 @@ export default function TranslateScreen({ onUnauthorized }) {
         placeholder="Bản dịch tiếng Anh của bạn"
         multiline
         maxLength={500}
-        style={{
-          borderWidth: 1,
-          borderColor: '#ddd',
-          borderRadius: 12,
-          padding: 14,
-          fontSize: 16,
-          minHeight: 100,
-          textAlignVertical: 'top',
-          backgroundColor: result ? '#fafafa' : '#fff',
-        }}
+        style={[
+          styles.input,
+          {
+            padding: 14,
+            minHeight: 100,
+            textAlignVertical: 'top',
+            backgroundColor: result ? '#fafafa' : '#fff',
+          },
+        ]}
       />
 
       <Pressable

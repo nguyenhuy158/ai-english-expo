@@ -1,7 +1,8 @@
 import { useCallback, useState } from 'react';
 import { useFocusEffect } from '@react-navigation/native';
-import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { api } from './api';
+import { Loading } from './ui';
 
 const TILES = [
   ['Lessons', 'Bài học', '📚'],
@@ -35,7 +36,7 @@ export default function HomeScreen({ navigation, user }) {
     }, [])
   );
 
-  if (loading) return <ActivityIndicator style={styles.center} size="large" />;
+  if (loading) return <Loading />;
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -75,7 +76,6 @@ export default function HomeScreen({ navigation, user }) {
 }
 
 const styles = StyleSheet.create({
-  center: { flex: 1, justifyContent: 'center' },
   container: { padding: 20, gap: 12 },
   hello: { fontSize: 24, fontWeight: '700', marginBottom: 8 },
   card: { backgroundColor: '#111', borderRadius: 16, padding: 20 },

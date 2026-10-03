@@ -20,7 +20,7 @@ App.js                   # Session bootstrap (api.me) + native-stack navigator
 src/
   api.js                 #   BASE_URL, fetch wrapper, 401 tagging, all API calls
   useApi.js              #   Loading/error/data hook; routes 401 to onUnauthorized
-  ui.js                  #   Shared Loading/ErrorText/EmptyText + shared styles
+  ui.js                  #   Shared Loading/ErrorText/EmptyText/VocabRow + shared styles
   LoginScreen.js         #   Google OAuth in a WebView
   HomeScreen.js          #   Due-card count, menu tiles, lesson shortcuts
   FlashcardsScreen.js    #   Spaced-repetition review
@@ -58,7 +58,7 @@ style: two-space indentation, single quotes, semicolons, trailing commas in
 multi-line literals. Screens are PascalCase files ending in `Screen.js` with a
 default-exported component; helpers use named exports. Keep every network call
 in `src/api.js` (screens never call `fetch` directly) and reuse `useApi` plus
-the `ui.js` states for loading/error/empty. Do not leave magic strings or
+the `ui.js` states for loading/error/empty (and `VocabRow` for a word card). Do not leave magic strings or
 numbers inline; lift them into named constants. Before writing Expo/React
 Native code, check the docs for the installed SDK at
 https://docs.expo.dev/versions/v54.0.0/.
@@ -68,7 +68,8 @@ https://docs.expo.dev/versions/v54.0.0/.
 There is no test runner. `selfcheck.mjs` uses `node:assert` with a stubbed
 `fetch` to verify the API layer (401 tagging, error messages, request
 shape). Extend it when changing `src/api.js`. UI changes are verified by hand
-in a simulator or Expo Go.
+in a simulator or Expo Go. There is no browser e2e: this is a native-only app;
+the web smoke for the same API lives in the `ai-english` web repo.
 
 ## Commit & Pull Request Guidelines
 

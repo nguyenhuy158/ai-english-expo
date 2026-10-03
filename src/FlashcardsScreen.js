@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { api, isUnauthorized } from './api';
+import { EmptyText, Loading } from './ui';
 
 // Same grading scale the web app uses: swipe right = 4 (nhớ), left = 2 (quên).
 const GRADE_KNOWN = 4;
@@ -41,9 +42,9 @@ export default function FlashcardsScreen({ onUnauthorized }) {
     }
   }
 
-  if (cards === null) return <ActivityIndicator style={styles.center} size="large" />;
-  if (error) return <Text style={[styles.center, styles.muted]}>{error}</Text>;
-  if (!current) return <Text style={[styles.center, styles.muted]}>Hết thẻ rồi 🎉</Text>;
+  if (cards === null) return <Loading />;
+  if (error) return <EmptyText>{error}</EmptyText>;
+  if (!current) return <EmptyText>Hết thẻ rồi 🎉</EmptyText>;
 
   return (
     <View style={styles.container}>
@@ -82,7 +83,6 @@ export default function FlashcardsScreen({ onUnauthorized }) {
 }
 
 const styles = StyleSheet.create({
-  center: { flex: 1, textAlign: 'center', textAlignVertical: 'center', justifyContent: 'center' },
   container: { flex: 1, padding: 20, gap: 16, justifyContent: 'center' },
   card: {
     backgroundColor: '#111',

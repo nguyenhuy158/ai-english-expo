@@ -1,7 +1,7 @@
-import { FlatList, Text, View } from 'react-native';
+import { FlatList, Text } from 'react-native';
 import { api } from './api';
 import { useApi } from './useApi';
-import { EmptyText, ErrorText, Loading, styles } from './ui';
+import { EmptyText, ErrorText, Loading, VocabRow, styles } from './ui';
 
 export default function SavedScreen({ onUnauthorized }) {
   const { data, error, loading } = useApi(() => api.savedVocab(), [], onUnauthorized);
@@ -16,16 +16,11 @@ export default function SavedScreen({ onUnauthorized }) {
       data={data}
       keyExtractor={(item) => String(item.id)}
       renderItem={({ item }) => (
-        <View style={styles.row}>
-          <Text style={styles.rowTitle}>{item.term}</Text>
-          <Text style={{ marginTop: 4 }}>{item.meaning}</Text>
-          {!!item.example && (
-            <Text style={{ marginTop: 6, fontStyle: 'italic', color: '#444' }}>"{item.example}"</Text>
-          )}
+        <VocabRow word={item}>
           {!!item.lesson_title && (
             <Text style={[styles.muted, { marginTop: 6 }]}>từ bài: {item.lesson_title}</Text>
           )}
-        </View>
+        </VocabRow>
       )}
     />
   );

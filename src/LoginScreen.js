@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { ActivityIndicator, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { WebView } from 'react-native-webview';
 import { BASE_URL, GOOGLE_LOGIN_URL } from './api';
+import { Loading } from './ui';
 
 /**
  * Google OAuth runs inside a WebView so the httpOnly auth cookie lands in the
@@ -18,7 +19,7 @@ export default function LoginScreen({ onLoggedIn }) {
         sharedCookiesEnabled
         thirdPartyCookiesEnabled
         startInLoadingState
-        renderLoading={() => <ActivityIndicator style={styles.center} size="large" />}
+        renderLoading={() => <Loading />}
         onNavigationStateChange={(nav) => {
           const done = nav.url === `${BASE_URL}/` || nav.url.startsWith(`${BASE_URL}/?`);
           if (done && !nav.loading) {

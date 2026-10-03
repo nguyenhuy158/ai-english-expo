@@ -21,6 +21,18 @@ export function EmptyText({ children }) {
   );
 }
 
+/** Một từ vựng: term, nghĩa, câu ví dụ; children thêm dòng phụ bên dưới. */
+export function VocabRow({ word, children }) {
+  return (
+    <View style={styles.row}>
+      <Text style={styles.rowTitle}>{word.term}</Text>
+      <Text style={{ marginTop: 4 }}>{word.meaning}</Text>
+      {!!word.example && <Text style={[styles.example, { marginTop: 6 }]}>"{word.example}"</Text>}
+      {children}
+    </View>
+  );
+}
+
 export const styles = StyleSheet.create({
   fill: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 24 },
   error: { color: '#c94f4f', textAlign: 'center' },
@@ -33,5 +45,7 @@ export const styles = StyleSheet.create({
     marginBottom: 10,
   },
   rowTitle: { fontSize: 16, fontWeight: '600' },
+  example: { fontStyle: 'italic', color: '#444' },
+  input: { borderWidth: 1, borderColor: '#ddd', borderRadius: 12, fontSize: 16 },
   screen: { padding: 20 },
 });

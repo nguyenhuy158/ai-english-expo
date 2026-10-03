@@ -43,15 +43,7 @@ export default function LookupScreen({ onUnauthorized }) {
           autoCapitalize="none"
           autoCorrect={false}
           returnKeyType="search"
-          style={{
-            flex: 1,
-            borderWidth: 1,
-            borderColor: '#ddd',
-            borderRadius: 12,
-            paddingHorizontal: 14,
-            paddingVertical: 12,
-            fontSize: 16,
-          }}
+          style={[styles.input, { flex: 1, paddingHorizontal: 14, paddingVertical: 12 }]}
         />
         <Pressable
           onPress={search}
@@ -77,7 +69,7 @@ export default function LookupScreen({ onUnauthorized }) {
           {!!word.level && <Text style={styles.muted}>CEFR {word.level}</Text>}
           <Text style={{ fontSize: 18, marginTop: 10 }}>{word.meaning}</Text>
           {!!word.example && (
-            <Text style={{ marginTop: 8, fontStyle: 'italic', color: '#444' }}>"{word.example}"</Text>
+            <Text style={[styles.example, { marginTop: 8 }]}>"{word.example}"</Text>
           )}
           {!!word.synonyms?.length && (
             <Text style={[styles.muted, { marginTop: 8 }]}>

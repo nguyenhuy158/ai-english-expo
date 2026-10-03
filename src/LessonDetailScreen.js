@@ -1,7 +1,7 @@
 import { ScrollView, Text, View } from 'react-native';
 import { api } from './api';
 import { useApi } from './useApi';
-import { EmptyText, ErrorText, Loading, styles } from './ui';
+import { EmptyText, ErrorText, Loading, VocabRow, styles } from './ui';
 
 /**
  * Worker trả hai dạng tuỳ lesson.type:
@@ -31,7 +31,7 @@ export default function LessonDetailScreen({ route, onUnauthorized }) {
           {!!section.heading && <Text style={styles.rowTitle}>{section.heading}</Text>}
           <Text style={{ marginTop: 6, lineHeight: 22 }}>{section.explanation}</Text>
           {section.examples?.map((ex, j) => (
-            <Text key={j} style={{ marginTop: 6, fontStyle: 'italic', color: '#444' }}>
+            <Text key={j} style={[styles.example, { marginTop: 6 }]}>
               • {ex}
             </Text>
           ))}
@@ -39,13 +39,7 @@ export default function LessonDetailScreen({ route, onUnauthorized }) {
       ))}
 
       {vocab?.map((word) => (
-        <View key={word.id ?? word.term} style={styles.row}>
-          <Text style={styles.rowTitle}>{word.term}</Text>
-          <Text style={{ marginTop: 4 }}>{word.meaning}</Text>
-          {!!word.example && (
-            <Text style={{ marginTop: 6, fontStyle: 'italic', color: '#444' }}>"{word.example}"</Text>
-          )}
-        </View>
+        <VocabRow key={word.id ?? word.term} word={word} />
       ))}
     </ScrollView>
   );
