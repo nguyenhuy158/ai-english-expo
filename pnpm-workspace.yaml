@@ -1,0 +1,3 @@
+# eas-cli -> bunyan -> dtrace-provider: optional native probe, not needed.
+allowBuilds:
+  dtrace-provider: false

@@ -18,10 +18,21 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "dev": "expo start",
+    "build": "expo export --platform ios --output-dir dist",
+    "check": "biome lint .",
+    "lint": "biome check .",
+    "format": "biome format --write .",
+    "test": "node selfcheck.mjs"
   },
   "private": true,
   "devDependencies": {
+    "@biomejs/biome": "^2.5.15",
     "eas-cli": "^23.1.0"
+  },
+  "packageManager": "pnpm@11.7.0",
+  "engines": {
+    "node": ">=22"
   }
 }
