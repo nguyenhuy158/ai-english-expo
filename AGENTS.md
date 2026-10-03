@@ -78,6 +78,15 @@ History uses Conventional Commits, often in Vietnamese, for example
 Pull requests should include a short summary, the commands you ran, and
 screenshots for visible UI changes.
 
+## Ecosystem
+
+See the [huyab.click ecosystem map](https://github.com/nguyenhuy158/kit/blob/main/docs/ECOSYSTEM.md) for how all personal repos connect.
+
+- Kit packages: `@huyab/config` (Biome; keeps the `quoteStyle: "single"`
+  override), reusable CI `nguyenhuy158/kit/.github/workflows/check.yml@v0.1.0`.
+- Talks to: `ai-english` API at https://en.huyab.click (`auth_token` cookie from
+  the WebView login at `/api/auth/google`, which goes through `sso`).
+
 ## Agent-Specific Instructions
 
 Keep responses short and focused. If a requirement is unclear, ask before
