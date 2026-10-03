@@ -2,12 +2,17 @@
 
 # dependencies
 node_modules/
+.pnpm-store/
 
 # Expo
 .expo/
 dist/
 web-build/
 expo-env.d.ts
+
+# generated native folders (expo prebuild / expo run:*)
+/ios
+/android
 
 # Native
 .kotlin/
@@ -30,12 +35,11 @@ yarn-error.*
 .DS_Store
 *.pem
 
-# local env files
-.env*.local
+# env files
+.env*
+
+# test coverage
+coverage/
 
 # typescript
 *.tsbuildinfo
-
-# generated native folders
-/ios
-/android
