@@ -13,7 +13,7 @@ function stubFetch(status, body, contentType = 'application/json') {
 
 const { api, isUnauthorized, BASE_URL } = await import('./src/api.js');
 
-assert.equal(BASE_URL, 'https://en.huyab.click');
+assert.equal(BASE_URL, 'https://en.huyab.cfd');
 
 stubFetch(200, { user: { id: 1, name: 'Huy' } });
 assert.deepEqual(await api.me(), { user: { id: 1, name: 'Huy' } });
@@ -48,7 +48,7 @@ console.log('selfcheck ok');
     });
   };
   const res = await api.reviewTranslation('Tôi về nhà', 'I go home');
-  assert.equal(seen.url, 'https://en.huyab.click/api/translation/review');
+  assert.equal(seen.url, 'https://en.huyab.cfd/api/translation/review');
   assert.equal(seen.opts.method, 'POST');
   assert.deepEqual(JSON.parse(seen.opts.body), { vietnamese: 'Tôi về nhà', translation: 'I go home' });
   assert.equal(seen.opts.headers['Content-Type'], 'application/json');

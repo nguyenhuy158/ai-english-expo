@@ -4,7 +4,7 @@
 
 This is an Expo (SDK 54, React Native 0.81, React 19) mobile client for the
 ai-english web app. It has no backend of its own: every screen talks to the
-same Cloudflare Worker API the web app uses (`https://en.huyab.click`).
+same Cloudflare Worker API the web app uses (`https://en.huyab.cfd`).
 
 Auth is the httpOnly `auth_token` cookie set by the Google OAuth flow.
 `LoginScreen` runs that flow inside a `react-native-webview` with
@@ -80,11 +80,11 @@ screenshots for visible UI changes.
 
 ## Ecosystem
 
-See the [huyab.click ecosystem map](https://github.com/nguyenhuy158/kit/blob/main/docs/ECOSYSTEM.md) for how all personal repos connect.
+See the [huyab.cfd ecosystem map](https://github.com/nguyenhuy158/kit/blob/main/docs/ECOSYSTEM.md) for how all personal repos connect.
 
 - Kit packages: `@huyab/config` (Biome; keeps the `quoteStyle: "single"`
   override), reusable CI `nguyenhuy158/kit/.github/workflows/check.yml@v0.1.0`.
-- Talks to: `ai-english` API at https://en.huyab.click (`auth_token` cookie from
+- Talks to: `ai-english` API at https://en.huyab.cfd (`auth_token` cookie from
   the WebView login at `/api/auth/google`, which goes through `sso`).
 
 ## Agent-Specific Instructions
