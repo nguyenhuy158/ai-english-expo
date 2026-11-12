@@ -43,8 +43,8 @@ importers:
         specifier: ^2.5.15
         version: 2.5.15
       '@huyab/config':
-        specifier: github:nguyenhuy158/kit#v0.1.0&path:packages/config
-        version: https://codeload.github.com/nguyenhuy158/kit/tar.gz/dc6d7122964975a8283a12876dafa9ad8cff2c51#path:packages/config
+        specifier: github:nguyenhuy158/kit#v0.2.0&path:packages/config
+        version: https://codeload.github.com/nguyenhuy158/kit/tar.gz/1470af6bdda0ca1db5525dcf3b212edef7dc7c4a#path:packages/config
       eas-cli:
         specifier: ^23.1.0
         version: 23.1.0(@types/node@26.4.0)(supports-color@8.1.1)(typescript@5.9.3)
@@ -859,8 +859,8 @@ packages:
   '@hapi/topo@5.1.0':
     resolution: {integrity: sha512-foQZKJig7Ob0BMAYBfcJk8d77QtOe7Wo4ox7ff1lQYoNNAb6jwcY1ncdoy2e9wQZzvNy7ODZCYJkK8kzmcAnAg==}
 
-  '@huyab/config@https://codeload.github.com/nguyenhuy158/kit/tar.gz/dc6d7122964975a8283a12876dafa9ad8cff2c51#path:packages/config':
-    resolution: {gitHosted: true, path: packages/config, tarball: https://codeload.github.com/nguyenhuy158/kit/tar.gz/dc6d7122964975a8283a12876dafa9ad8cff2c51}
+  '@huyab/config@https://codeload.github.com/nguyenhuy158/kit/tar.gz/1470af6bdda0ca1db5525dcf3b212edef7dc7c4a#path:packages/config':
+    resolution: {gitHosted: true, integrity: sha512-WqOvi2mfcB25roBma1epn7KAdWNLkA1O9pC2XDesQeqkjdzZxltmlkB82xqdAXh8ExQYL8tsMNwSaAunVNMgnw==, path: packages/config, tarball: https://codeload.github.com/nguyenhuy158/kit/tar.gz/1470af6bdda0ca1db5525dcf3b212edef7dc7c4a}
     version: 0.1.0
 
   '@isaacs/cliui@8.0.2':
@@ -2151,6 +2151,7 @@ packages:
   http-call@5.3.0:
     resolution: {integrity: sha512-ahwimsC23ICE4kPl9xTBjKB4inbRaeLyZeRunC/1Jy/Z6X8tv22MEAjK+KBOMSVLaqXPTTmd8638waVIKLGx2w==}
     engines: {node: '>=8.0.0'}
+    deprecated: Renamed to @heroku/http-call — please install @heroku/http-call instead.
 
   http-errors@2.0.1:
     resolution: {integrity: sha512-4FbRdAX+bSdmo4AUFuS0WNiPz8NgFt+r8ThgNWmlrjQjt1Q7ZR9+zTlce2859x4KSXrwIsaeTqDoKQmtP8pLmQ==}
@@ -4943,7 +4944,7 @@ snapshots:
     dependencies:
       '@hapi/hoek': 9.3.0
 
-  '@huyab/config@https://codeload.github.com/nguyenhuy158/kit/tar.gz/dc6d7122964975a8283a12876dafa9ad8cff2c51#path:packages/config': {}
+  '@huyab/config@https://codeload.github.com/nguyenhuy158/kit/tar.gz/1470af6bdda0ca1db5525dcf3b212edef7dc7c4a#path:packages/config': {}
 
   '@isaacs/cliui@8.0.2':
     dependencies:

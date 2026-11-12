@@ -6,7 +6,7 @@
  * that same store — so plain fetch stays authenticated after the WebView login.
  */
 
-export const BASE_URL = 'https://en.huyab.click';
+export const BASE_URL = 'https://en.huyab.cfd';
 
 const UNAUTHORIZED = Symbol('unauthorized');
 
